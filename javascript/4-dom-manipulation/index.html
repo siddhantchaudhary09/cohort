@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TODO APP</h1>
+    <div class="container">
+      <div>
+        <input id="todo-input" placeholder="Enter your todo" />
+        <button id="add-btn">Add</button>
+      </div>
+
+      <div>
+        <ul id="list">
+          <li>Go to Gym</li>
+          <li>Eat</li>
+          <li>Code</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const addBtn = document.getElementById("add-btn");
+      const inputtext = document.getElementById("todo-input");
+      const list = document.getElementById("list");
+      addBtn?.addEventListener("click", () => {
+        const value = inputtext.value.trim();
+        if (!value) {
+          alert("please enter value");
+        }
+
+        const li = document.createElement("li");
+        li.innerText = value;
+        const delbutton = document.createElement("button");
+        delbutton.innerText = "X";
+
+        delbutton.addEventListener("click", () => {
+          li.remove();
+        });
+
+        li.appendChild(delbutton);
+        list.appendChild(li);
+
+        inputtext.value = "";
+      });
+    </script>
+  </body>
+</html>
